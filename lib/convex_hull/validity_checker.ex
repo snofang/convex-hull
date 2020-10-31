@@ -21,6 +21,10 @@ defmodule ConvexHull.ValidityChecker do
 
   # Returns true if the number of dimensions of the points does not exceed the max allowed number.
   def check_max_dimensions(points, max_dimensions) do
-
+    if max_dimensions == nil do
+      true
+    else
+      length(Tuple.to_list(List.first(points))) <= max_dimensions
+    end
   end
 end
