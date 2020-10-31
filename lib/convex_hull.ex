@@ -1,18 +1,6 @@
 defmodule ConvexHull do
   @moduledoc """
-  Documentation for `ConvexHull`.
+  Module providing functions for computing a convex hull from a list of points. Each point should be a tuple with as many elements as dimensions.
+  Each available convex hull algorithm specifies how many dimensions are supported and the running time in asymptotic notation.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ConvexHull.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
