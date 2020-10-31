@@ -9,14 +9,15 @@ defmodule ConvexHull.ValidityChecker do
 
   end
 
-  def check_number_points(points) do
+  # Returns true if there are atleast 3 points (the minimum requirement for creating a convex hull).
+  def check_number_points(points), do: length(points) > 2
 
-  end
-
+  # Returns true if all points have the same number of dimensions.
   def check_consistent_dimensions(points) do
 
   end
 
+  # Returns true if the number of dimensions of the points does not exceed the max allowed number.
   def check_max_dimensions(points, max_dimensions) do
 
   end
