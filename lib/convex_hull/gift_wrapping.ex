@@ -5,6 +5,15 @@ defmodule ConvexHull.GiftWrapping do
   This algorithm can be used when n is small or when h is expected to be very small with respect to n.
   """
   def gift_wrapping(points) do
+    if ConvexHull.ValidityChecker.is_valid?(points, 2) do
 
+    end
+  end
+
+  # Find a point that is guaranteed to be in the convex hull.
+  def get_leftmost_point(points) do
+    Enum.reduce(points, List.first(points), fn {x, y}, {x_acc, y_acc} ->
+      if x < x_acc, do: {x, y}, else: {x_acc, y_acc}
+    end)
   end
 end

@@ -10,12 +10,12 @@ defmodule ConvexHull.ValidityChecker do
   end
 
   # Returns true if there are atleast 3 points (the minimum requirement for creating a convex hull). Raises runtime error if not.
-  def check_number_points(points) do
+  defp check_number_points(points) do
     if length(points) > 2, do: true, else: raise "Cannot compute convex hull with less than 3 points."
   end
 
   # Returns true if all points have the same number of dimensions. Raises runtime error if not.
-  def check_consistent_dimensions(points) do
+  defp check_consistent_dimensions(points) do
     num_dimensions = length(Tuple.to_list(List.first(points)))
 
     if Enum.all?(points, fn point -> length(Tuple.to_list(point)) == num_dimensions end) do
@@ -26,7 +26,7 @@ defmodule ConvexHull.ValidityChecker do
   end
 
   # Returns true if the number of dimensions of the points does not exceed the max allowed number. Raises runtime error if not.
-  def check_max_dimensions(points, max_dimensions) do
+  defp check_max_dimensions(points, max_dimensions) do
     if max_dimensions == nil do
       true
     else
