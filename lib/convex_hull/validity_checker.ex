@@ -5,7 +5,7 @@ defmodule ConvexHull.ValidityChecker do
   convex hull, checking if all points have the same dimensions and checking if the points have a valid amount of dimensions.
   A relevant runtime error is raised if any of the validity checks fail.
   """
-  def is_valid(points, max_dimensions \\ nil) do
+  def is_valid?(points, max_dimensions \\ nil) do
 
   end
 
@@ -14,7 +14,9 @@ defmodule ConvexHull.ValidityChecker do
 
   # Returns true if all points have the same number of dimensions.
   def check_consistent_dimensions(points) do
+    num_dimensions = length(Tuple.to_list(List.first(points)))
 
+    Enum.all?(points, fn point -> length(Tuple.to_list(point)) == num_dimensions end)
   end
 
   # Returns true if the number of dimensions of the points does not exceed the max allowed number.
