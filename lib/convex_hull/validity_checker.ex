@@ -6,7 +6,7 @@ defmodule ConvexHull.ValidityChecker do
   A relevant runtime error is raised if any of the validity checks fail.
   """
   def is_valid?(points, max_dimensions \\ nil) do
-
+    check_number_points(points) and check_consistent_dimensions(points) and check_max_dimensions(points, max_dimensions)
   end
 
   # Returns true if there are atleast 3 points (the minimum requirement for creating a convex hull). Raises runtime error if not.
