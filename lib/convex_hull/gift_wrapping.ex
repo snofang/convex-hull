@@ -38,12 +38,7 @@ defmodule ConvexHull.GiftWrapping do
 
       # If the z value is positive it means the point we are checking is to the left of the previously
       # believed next point and therefore more likely to be on the convex hull.
-      if cross_product(v1, v2) > 0, do: {check_x, check_y}, else: {next_x, next_y}
+      if ConvexHull.Utility.cross_product(v1, v2) > 0, do: {check_x, check_y}, else: {next_x, next_y}
     end)
-  end
-
-  # Calculate a simple cross product for two dimensional vectors. Only returns the z value.
-  defp cross_product({x_v1, y_v1}, {x_v2, y_v2}) do
-    (x_v1 * y_v2) - (x_v2 * y_v1)
   end
 end
