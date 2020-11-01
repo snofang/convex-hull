@@ -35,14 +35,14 @@ defmodule ConvexHull.GrahamScan do
   end
 
   # Sorts the points in increasing order of y-coordinate. If there are multiple points with the lowest y-coordinate, the one with the lowest x-coordinate is first.
-  def sort_by_y(points) do
+  defp sort_by_y(points) do
     Enum.sort(points, fn {x1, y1}, {x2, y2} ->
       if y1 == y2, do: x1 < x2, else: y1 < y2
     end)
   end
 
   # Sorts the points in increasing order of the angle they and the lowest point make with the x-axis.
-  def sort_by_angle(points, {lowest_x, lowest_y}) do
+  defp sort_by_angle(points, {lowest_x, lowest_y}) do
     Enum.sort(points, fn {x1, y1}, {x2, y2} ->
       v1 = {(lowest_x - x1), (lowest_y - y1)}
       v2 = {(lowest_x - x2), (lowest_y - y2)}
