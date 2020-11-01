@@ -7,9 +7,10 @@ defmodule ConvexHull.GrahamScan do
     try do
       ConvexHull.ValidityChecker.is_valid?(points, 2)
 
-      lowest_point = get_lowest_point(points)
+      [lowest_point | points] = sort_by_y(points)
+
       # Extracting the two first points since they are added to the convex hull initially along with the lowest point.
-      [p1 | [p2 | sorted_points]] = sort_by_angle(List.delete(points, lowest_point), lowest_point)
+      [p1 | [p2 | sorted_points]] = sort_by_angle(points, lowest_point)
       graham_scan(sorted_points, [lowest_point, p1, p2])
     rescue
       e in RuntimeError -> IO.puts("An error occurred: " <> e.message)
@@ -33,11 +34,11 @@ defmodule ConvexHull.GrahamScan do
     end
   end
 
-  # Find the point with the lowest y-coordinate. If there are multiple points with the lowest y-coordinate, the one with the lowest x-coordinate is returned.
-  def get_lowest_point(points) do
-    List.first(Enum.sort(points, fn {x1, y1}, {x2, y2} ->
+  # Sorts the points in increasing order of y-coordinate. If there are multiple points with the lowest y-coordinate, the one with the lowest x-coordinate is first.
+  def sort_by_y(points) do
+    Enum.sort(points, fn {x1, y1}, {x2, y2} ->
       if y1 == y2, do: x1 < x2, else: y1 < y2
-    end))
+    end)
   end
 
   # Sorts the points in increasing order of the angle they and the lowest point make with the x-axis.
