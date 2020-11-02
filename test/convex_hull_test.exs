@@ -60,4 +60,18 @@ defmodule ConvexHullTest do
 
     assert ConvexHull.gift_wrapping(state[:points]) == convex_hull
   end
+
+  test "Calculates the convex hull with the graham scan algorithm.", state do
+    convex_hull = [
+      {0.4823896228171788, -0.4776170002088109},
+      {0.4916198379282093, -0.345391701297268},
+      {0.4932166845474547, 0.4928094162538735},
+      {0.05054295812784038, 0.4754929463150845},
+      {-0.3521487911717489, 0.4352656197131292},
+      {-0.4907368011686362, 0.1865826865533206},
+      {-0.4404289572876217, -0.2894855991839297},
+      {-0.161920957418085, -0.4055339716426413}]
+
+    assert ConvexHull.graham_scan(state[:points]) == convex_hull
+  end
 end
