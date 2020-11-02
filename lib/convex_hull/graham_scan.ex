@@ -25,7 +25,7 @@ defmodule ConvexHull.GrahamScan do
     v2 = {(x1 - x3), (y1 - y3)}
 
     # If the z value of the cross product is positive then the three points constitute a left turn which means we want to add p3 to the convex hull.
-    if ConvexHull.Utility.cross_product(v1, v2) > 0 do
+    if ConvexHull.Utility.cross_product_z(v1, v2) > 0 do
       graham_scan(rest_points, convex_hull ++ [{x3, y3}])
     # If not then we want to remove p2 from the convex hull and try again.
     else
@@ -47,7 +47,7 @@ defmodule ConvexHull.GrahamScan do
       v1 = {(lowest_x - x1), (lowest_y - y1)}
       v2 = {(lowest_x - x2), (lowest_y - y2)}
 
-      ConvexHull.Utility.cross_product(v1, v2) > 0
+      ConvexHull.Utility.cross_product_z(v1, v2) > 0
     end)
   end
 end
