@@ -15,4 +15,12 @@ defmodule ValidityCheckerTest do
       ConvexHull.ValidityChecker.is_valid?(points)
     end
   end
+
+  test "checks an invalid set of points with inconsistent dimensions for validity" do
+    points =  [{2, 1}, {0, 3}, {5, 5}, {7, 1}, {8, 5, 5}, {3, 3}, {3, 7}]
+
+    assert_raise RuntimeError, "Inconsistent number of dimensions of the given points.", fn ->
+      ConvexHull.ValidityChecker.is_valid?(points)
+    end
+  end
 end
