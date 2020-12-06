@@ -12,7 +12,6 @@ defmodule ConvexHull do
 
   If you wish to read more about the many different convex hull algorithms Wikipedia is a good starting point:
   * [Convex hull algorithms](https://en.wikipedia.org/wiki/Convex_hull_algorithms)
-
   """
   @moduledoc since: "1.0.0"
 
@@ -22,6 +21,9 @@ defmodule ConvexHull do
   Simple but not the most efficient algorithm, also known as Jarvis' march. Created independently by Chand & Kapur in
   1970 and R. A. Jarvis in 1973. This algorithm can be used when n is small or when h is expected to be very small with
   respect to n. The algorithm only supports two-dimensional points.
+
+  For more information on the gift wrapping algorithm see:
+  * [Gift wrapping algorithm](https://en.wikipedia.org/wiki/Gift_wrapping_algorithm)
   """
   @doc since: "1.0.0"
   def gift_wrapping(points) do
@@ -33,6 +35,9 @@ defmodule ConvexHull do
 
   Slighty more sophisticated, but much more efficient than the gift wrapping algorithm. Named after Ronald Graham,
   who published the algorithm in 1972. The algorithm only supports two-dimensional points.
+
+  For more information on Graham scan see:
+  * [Graham scan](https://en.wikipedia.org/wiki/Graham_scan)
   """
   @doc since: "1.0.0"
   def graham_scan(points) do
@@ -45,6 +50,9 @@ defmodule ConvexHull do
   Note that this algorithm is not only the most efficient in terms of time complexity but also significantly faster due to the distributed fashion
   in which the convex hull subsets are calculated. Named after Timothy M. Chan, who published the algorithm in 1996. The algorithm only supports
   two-dimensional points.
+
+  For more information on the Chan's algorithm see:
+  * [Chan's algorithm](https://en.wikipedia.org/wiki/Chan%27s_algorithm)
   """
   @doc since: "1.0.0"
   def chans_algorithm(points) do
