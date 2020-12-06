@@ -25,6 +25,13 @@ defmodule ConvexHull do
     ConvexHull.GrahamScan.graham_scan(points)
   end
 
+  @doc """
+  Chan's algorithm has a time complexity of O(n log h), where n is the number of points and h is the number of points on the convex hull.
+
+  Note that this algorithm is not only the most efficient in terms of time complexity but also significantly faster due to the distributed fashion
+  in which the convex hull subsets are calculated. Named after Timothy M. Chan, who published the algorithm in 1996. The algorithm only supports
+  two-dimensional points.
+  """
   def chans_algorithm(points) do
     ConvexHull.ChansAlgorithm.chans_algorithm(points)
   end
