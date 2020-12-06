@@ -1,7 +1,7 @@
 defmodule ConvexHull.GrahamScan do
   @moduledoc false
 
-  # Points used for testing: points = [{2, 1}, {0, 3}, {11, 9}, {6, 6}, {5, 5}, {7, 1}, {8, 5}, {3, 3}, {3, 7}, {7, 8}, {1, 5}, {5, 0}, {5, 12}, {0, 10}]
+  # Points used for testing: points = [{2, 1}, {0, 3}, {11, 9}, {6, 6}, {5, 5}, {7, 1}, {8, 5}, {3, 3}, {3, 7}, {7, 8}]
 
   def graham_scan(points) do
     try do

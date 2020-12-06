@@ -6,6 +6,15 @@ defmodule ConvexHull do
   how many dimensions are supported and the running time in asymptotic notation. Each algorithm returns the same
   convex hull so we recommend that Chan's algorithm is used in most cases for performance reasons.
 
+  ## Examples
+    iex> ConvexHull.graham_scan([{2, 1}, {0, 3}, {11, 9}, {6, 6}, {5, 5}, {7, 1}, {8, 5}, {3, 3}, {3, 7}, {7, 8}])
+    [{2, 1}, {7, 1}, {11, 9}, {3, 7}, {0, 3}]
+
+    iex> ConvexHull.gift_wrapping([{2, 1}, {0, 3}, {11, 9}, {6, 6}, {5, 5}, {7, 1}, {8, 5}, {3, 3}, {3, 7}, {7, 8}])
+    [{0, 3}, {3, 7}, {11, 9}, {7, 1}, {2, 1}]
+
+  **Note that there are some differences in the order and starting points of the returned convex hulls.**
+
   Graham scan and the gift wrapping algorithm are included in the interest of demonstrating the wide range of different
   convex hull algorithms. The inclusion of less efficient algorithms in the package is further motivated by
   the fact that Chan's algorithm uses both in its own compuation.
