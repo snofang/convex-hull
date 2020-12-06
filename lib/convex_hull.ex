@@ -24,4 +24,8 @@ defmodule ConvexHull do
   def graham_scan(points) do
     ConvexHull.GrahamScan.graham_scan(points)
   end
+
+  def chans_algorithm(points) do
+    ConvexHull.ChansAlgorithm.chans_algorithm(points)
+  end
 end
