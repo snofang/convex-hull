@@ -15,6 +15,12 @@ defmodule ConvexHull do
 
   **Note that there are some differences in the order and starting points of the returned convex hulls.**
 
+  Each available convex hull algorithm raises an exception if the given list of points is invalied.
+  The current reasons for invalidity are:
+  * There are less than three points.
+  * The dimensions of the points are inconsistient.
+  * The points exceed the maximum supported number of dimensions of the used algorithm.
+
   If you wish to read more about the many different convex hull algorithms Wikipedia is a good starting point:
   * [Convex hull algorithms](https://en.wikipedia.org/wiki/Convex_hull_algorithms)
   """
