@@ -3,8 +3,8 @@ defmodule ConvexHull do
   Module providing functions for computing a convex hull from a list of points.
 
   Each point should be a tuple with as many elements as dimensions. Each available convex hull algorithm specifies
-  how many dimensions are supported and the running time in asymptotic notation. Each algorithm returns the same
-  convex hull so we recommend that Chan's algorithm is used in most cases for performance reasons.
+  how many dimensions are supported and the running time in asymptotic notation. Both algorithms return the same
+  convex hull but we recommend that Graham scan is used in most cases for performance reasons.
 
   ## Examples
     iex> ConvexHull.graham_scan([{2, 1}, {0, 3}, {11, 9}, {6, 6}, {5, 5}, {7, 1}, {8, 5}, {3, 3}, {3, 7}, {7, 8}])
@@ -14,10 +14,6 @@ defmodule ConvexHull do
     [{0, 3}, {3, 7}, {11, 9}, {7, 1}, {2, 1}]
 
   **Note that there are some differences in the order and starting points of the returned convex hulls.**
-
-  Graham scan and the gift wrapping algorithm are included in the interest of demonstrating the wide range of different
-  convex hull algorithms. The inclusion of less efficient algorithms in the package is further motivated by
-  the fact that Chan's algorithm uses both in its own compuation.
 
   If you wish to read more about the many different convex hull algorithms Wikipedia is a good starting point:
   * [Convex hull algorithms](https://en.wikipedia.org/wiki/Convex_hull_algorithms)
@@ -51,20 +47,5 @@ defmodule ConvexHull do
   @doc since: "1.0.0"
   def graham_scan(points) do
     ConvexHull.GrahamScan.graham_scan(points)
-  end
-
-  @doc """
-  Chan's algorithm has a time complexity of O(n log h), where n is the number of points and h is the number of points on the convex hull.
-
-  Note that this algorithm is not only the most efficient in terms of time complexity but also significantly faster due to the distributed fashion
-  in which the convex hull subsets are calculated. Named after Timothy M. Chan, who published the algorithm in 1996. The algorithm only supports
-  two-dimensional points.
-
-  For more information on the Chan's algorithm see:
-  * [Chan's algorithm](https://en.wikipedia.org/wiki/Chan%27s_algorithm)
-  """
-  @doc since: "1.0.0"
-  def chans_algorithm(points) do
-    ConvexHull.ChansAlgorithm.chans_algorithm(points)
   end
 end
