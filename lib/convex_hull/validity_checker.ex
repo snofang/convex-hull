@@ -1,18 +1,15 @@
 defmodule ConvexHull.ValidityChecker do
-  @moduledoc """
-  Module providing functions to check the validity of the input to the convex hull algorithms.
+  @moduledoc false
+  # This module contains general validity checks that are relevant for all algorithms, this includes checking if enough points
+  # were given to construct a convex hull, checking if all points have the same dimensions and checking if the points have a valid
+  # amount of dimensions. A relevant runtime error is raised if any of the validity checks fail.
 
-  This module contains general validity checks that are relevant for all algorithms, this includes checking if enough points
-  were given to construct a convex hull, checking if all points have the same dimensions and checking if the points have a valid
-  amount of dimensions. A relevant runtime error is raised if any of the validity checks fail.
-  """
-  @moduledoc since: "1.0.0"
+  # Return true if all checks pass without rasing errors.
   def is_valid?(points, max_dimensions \\ nil) do
     check_number_points(points)
     check_consistent_dimensions(points)
     check_max_dimensions(points, max_dimensions)
 
-    # Return true if all checks pass without rasing errors.
     true
   end
 
