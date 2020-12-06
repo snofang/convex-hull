@@ -3,7 +3,16 @@ defmodule ConvexHull do
   Module providing functions for computing a convex hull from a list of points.
 
   Each point should be a tuple with as many elements as dimensions. Each available convex hull algorithm specifies
-  how many dimensions are supported and the running time in asymptotic notation.
+  how many dimensions are supported and the running time in asymptotic notation. Each algorithm returns the same
+  convex hull so we recommend that Chan's algorithm is used in most cases for performance reasons.
+
+  Graham scan and the gift wrapping algorithm are included in the interest of demonstrating the wide range of different
+  convex hull algorithms. The inclusion of less efficient algorithms in the package is further motivated by
+  the fact that Chan's algorithm uses both in its own compuation.
+
+  If you wish to read more about the many different convex hull algorithms Wikipedia is a good starting point:
+  * [Convex hull algorithms](https://en.wikipedia.org/wiki/Convex_hull_algorithms)
+
   """
   @moduledoc since: "1.0.0"
 
@@ -15,7 +24,6 @@ defmodule ConvexHull do
   respect to n. The algorithm only supports two-dimensional points.
   """
   @doc since: "1.0.0"
-
   def gift_wrapping(points) do
     ConvexHull.GiftWrapping.gift_wrapping(points)
   end
