@@ -47,6 +47,9 @@ defmodule ConvexHullTest do
     {-0.4404289572876217, -0.2894855991839297}]}
   end
 
+  # TODO: Add tests for what happens under coliniarity.
+  # TODO: Add tests for waht happens under duplicates.
+
   test "calculates the convex hull with the gift wrapping algorithm", state do
     convex_hull = [
       {-0.4907368011686362, 0.1865826865533206},
