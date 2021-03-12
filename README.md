@@ -1,5 +1,5 @@
 # Convex Hull
-Elixir implementation of various algorithms to find the convex hull of a set of points.
+Elixir implementation of various algorithms to find the convex hull of a shape from a set of points.
 
 ## Algorithms
 Currently the project implementes two different algorithms.
